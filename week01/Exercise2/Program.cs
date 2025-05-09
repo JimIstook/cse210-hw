@@ -7,6 +7,8 @@ class Program
     {
         int num_grade;
         string letter;
+        string modifier;
+        string pass_fail;
         while (true)
         {
             try
@@ -43,6 +45,16 @@ class Program
             letter = "F";
         }
 
+        if (num_grade >= 70)
+        {
+            pass_fail = "passed";
+        }
+        else
+        {
+            pass_fail = "failed";
+        }
+
         Console.WriteLine($"Your grade is: {letter}");
+        Console.WriteLine($"You {pass_fail} the class.");
     }
 }
