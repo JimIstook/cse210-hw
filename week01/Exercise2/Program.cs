@@ -5,7 +5,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        int num_grade = 0;
+        int num_grade;
+        string letter;
         while (true)
         {
             try
@@ -21,5 +22,27 @@ class Program
             
         }
 
+        if (num_grade >= 90)
+        {
+            letter = "A";
+        }
+        else if (num_grade >= 80)
+        {
+            letter = "B";
+        }
+        else if (num_grade >= 70)
+        {
+            letter = "C";
+        }
+        else if (num_grade >= 60)
+        {
+            letter = "D";
+        }
+        else
+        {
+            letter = "F";
+        }
+
+        Console.WriteLine($"Your grade is: {letter}");
     }
 }
