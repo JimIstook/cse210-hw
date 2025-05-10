@@ -54,7 +54,31 @@ class Program
             pass_fail = "failed";
         }
 
-        Console.WriteLine($"Your grade is: {letter}");
+        int second_num = num_grade % 10;
+        if (second_num >= 7)
+        {
+            modifier = "+";
+        }
+        else if (second_num < 3)
+        {
+            modifier = "-";
+        }
+        else
+        {
+            modifier = "";
+        }
+
+        if (num_grade >= 93)
+        {
+            modifier = "";
+        }
+
+        if (letter == "F")
+        {
+            modifier = "";
+        }
+
+        Console.WriteLine($"Your grade is: {letter}{modifier}");
         Console.WriteLine($"You {pass_fail} the class.");
     }
 }
