@@ -34,6 +34,26 @@ class Program
                 }
 
                 count += 1;
+
+                if (magic_number > guess)
+                {
+                    Console.WriteLine("Higher");
+                }
+                else if (magic_number < guess)
+                {
+                    Console.WriteLine("Lower");
+                }
+                else
+                {
+                    Console.WriteLine($"Correct! It took you {count} guesses.");
+                }
+            }
+
+            Console.Write("Wouldyou like to play again? (yes/no) ");
+            string replay = Console.ReadLine();
+            if (replay != "yes")
+            {
+                playing = false;
             }
         }
     }
