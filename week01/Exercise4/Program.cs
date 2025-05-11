@@ -9,8 +9,8 @@ class Program
         int number;
         int sum = 0;
         float average;
-        int largest = -1000;
-        int smallest = 1000;
+        int largest = int.MinValue;
+        int smallest = int.MaxValue;
 
         while (true)
         {
@@ -24,7 +24,7 @@ class Program
                 }
                 catch (System.Exception)
                 {
-                    Console.WriteLine("Please enter a number.");
+                    Console.WriteLine("Please enter a whole number.");
                 }
             }
             
@@ -42,11 +42,12 @@ class Program
         foreach (int num in numbers)
         {
             sum += num;
-            if ((num < smallest) || (num > 0))
+            if ((num < smallest) && (num > 0))
             {
                 smallest = num;
             }
-            else if (num > largest)
+            
+            if (num > largest)
             {
                 largest = num;
             }
@@ -57,6 +58,14 @@ class Program
         Console.WriteLine($"The sum is: {sum}");
         Console.WriteLine($"The average is: {average}");
         Console.WriteLine($"The largest number is: {largest}");
-        Console.WriteLine($"The smallest positive number is: {smallest}");
+
+        if (smallest == int.MaxValue)
+        {
+            Console.WriteLine("No positive numbers were entered.");
+        }
+        else
+        {
+            Console.WriteLine($"The smallest positive number is: {smallest}");
+        }
     }
 }
