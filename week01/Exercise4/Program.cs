@@ -67,5 +67,12 @@ class Program
         {
             Console.WriteLine($"The smallest positive number is: {smallest}");
         }
+
+        numbers.Sort();
+        Console.WriteLine("The sorted list is:");
+        foreach (int num in numbers)
+        {
+            Console.WriteLine(num);
+        }
     }
 }
