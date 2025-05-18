@@ -2,8 +2,8 @@ using System;
 
 public class PromptGenerator
 {
-    public Dictionary<int, string> _prompts = new Dictionary<int, string>();
-    public Random _random = new Random();
+    private Dictionary<int, string> _prompts = new Dictionary<int, string>();
+    private Random _random = new Random();
 
     public PromptGenerator()
     {

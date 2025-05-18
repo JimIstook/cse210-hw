@@ -6,20 +6,12 @@ public class Entry
     public string _promptText;
     public string _entryText;
 
-    public void SetDate()
-    {
-        DateTime currentDate = DateTime.Now;
-        _date = currentDate.ToShortDateString();
-    }
-
-    public void SetPrompt(string prompt)
+    public Entry(string prompt, string response)
     {
         _promptText = prompt;
-    }
-
-    public void SetResponse(string response)
-    {
         _entryText = response;
+        DateTime currentDate = DateTime.Now;
+        _date = currentDate.ToShortDateString();
     }
 
     public void Display()
