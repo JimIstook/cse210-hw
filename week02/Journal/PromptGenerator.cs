@@ -7,11 +7,11 @@ public class PromptGenerator
 
     public PromptGenerator()
     {
-        _prompts.Add(0, "hello world1");
-        _prompts.Add(1, "hello world2");
-        _prompts.Add(2, "hello world3");
-        _prompts.Add(3, "hello world4");
-        _prompts.Add(4, "hello world5");
+        _prompts.Add(0, "What made you smile today?");
+        _prompts.Add(1, "What do you think you could have done better today?");
+        _prompts.Add(2, "What did someone do to make your day?");
+        _prompts.Add(3, "Who did you talk to today?");
+        _prompts.Add(4, "What made you laugh today?");
     }
 
     public string GetRandomPrompt()

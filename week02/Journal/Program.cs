@@ -24,11 +24,15 @@ class Program
             }
             else if (command == "3")
             {
-
+                Console.WriteLine("What is the filename?");
+                string filename = Console.ReadLine();
+                journal.LoadFromFile(filename);
             }
             else if (command == "4")
             {
-
+                Console.WriteLine("What is the filename?");
+                string filename = Console.ReadLine();
+                journal.SaveToFile(filename);
             }
             else if (command != "5")
             {

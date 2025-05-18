@@ -24,13 +24,34 @@ public class Journal
         }
     }
 
-    public void SaveToFile()
+    public void SaveToFile(string filename)
     {
-
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach (Entry entry in _entries)
+            {
+                outputFile.WriteLine($"{entry._date}||{entry._promptText}||{entry._entryText}");
+            }
+        }
     }
 
-    public void LoadFromFile()
+    public void LoadFromFile(string filename)
     {
+        _entries.Clear();
 
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("||");
+
+            string date = parts[0];
+            string prompt = parts[1];
+            string response = parts[2];
+
+            Entry entry = new Entry(prompt, response);
+            entry._date = date;
+            _entries.Add(entry);
+        }
     }
 }
