@@ -17,6 +17,11 @@ public class Journal
 
     public void DisplayAll()
     {
+        if (_entries.Count() == 0)
+        {
+            Console.WriteLine("There are no entires to display.");
+        }
+        
         foreach (Entry entry in _entries)
         {
             entry.Display();
@@ -33,6 +38,7 @@ public class Journal
                 outputFile.WriteLine($"{entry._date}||{entry._promptText}||{entry._entryText}");
             }
         }
+        Console.WriteLine($"Saved to {filename}");
     }
 
     public void LoadFromFile(string filename)
@@ -45,13 +51,18 @@ public class Journal
         {
             string[] parts = line.Split("||");
 
-            string date = parts[0];
-            string prompt = parts[1];
-            string response = parts[2];
+            if (parts.Count() == 3)
+            {
+                string date = parts[0];
+                string prompt = parts[1];
+                string response = parts[2];
 
-            Entry entry = new Entry(prompt, response);
-            entry._date = date;
-            _entries.Add(entry);
+                Entry entry = new Entry(prompt, response);
+                entry._date = date;
+                _entries.Add(entry);
+            }
+
         }
+        Console.WriteLine($"Loaded from {filename}");
     }
 }

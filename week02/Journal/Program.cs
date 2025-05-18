@@ -6,10 +6,10 @@ class Program
     {
         string command = "";
         Journal journal = new Journal();
-
+        Console.WriteLine("Welcome to the Journal Program!");
+        
         while (command != "5")
         {
-            Console.WriteLine("Welcome to the Journal Program!");
             Console.WriteLine("Please select one of the following options:");
             Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
             Console.Write("What would you like to do? ");
