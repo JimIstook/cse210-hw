@@ -9,6 +9,7 @@ public class Journal
     {
         string prompt = _promptGenerator.GetRandomPrompt();
         Console.WriteLine(prompt);
+        Console.Write("> ");
         string response = Console.ReadLine();
         Entry newEntry = new Entry(prompt, response);
         _entries.Add(newEntry);
@@ -19,6 +20,7 @@ public class Journal
         foreach (Entry entry in _entries)
         {
             entry.Display();
+            Console.WriteLine();
         }
     }
 
