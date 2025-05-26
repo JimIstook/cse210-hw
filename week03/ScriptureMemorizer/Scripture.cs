@@ -1,0 +1,45 @@
+using System;
+
+public class Scripture
+{
+    public Reference _reference = new Reference();
+    private List<Word> _words = new List<Word>();
+    private string _scripture = "Trust in the lord in all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.";
+    private Random _random = new Random();
+
+    public Scripture()
+    {
+        SetWords();
+    }
+
+    private void SetWords()
+    {
+        _words.Clear();
+        string[] words = _scripture.Split(" ");
+        foreach (string word in words)
+        {
+            Word newWord = new Word(word);
+            _words.Add(newWord);
+        }
+    }
+
+    public void HideRandomWords(int numberToHide)
+    {
+        
+    }
+
+    public string GetDisplayText()
+    {
+        string displayText = _reference.GetDisplayText();
+        foreach (Word word in _words)
+        {
+            displayText += ($" {word.GetDisplayText()}");
+        }
+        return displayText;
+    }
+
+    public bool IsCompletelyHidden()
+    {
+        return false;
+    }
+}
