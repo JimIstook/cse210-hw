@@ -25,7 +25,15 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
-        
+        var visibleWords = _words.Where(word => !word.IsHidden()).ToList();
+        int wordsToHide = Math.Min(numberToHide, visibleWords.Count);
+
+        for (int i = 0; i < wordsToHide; i++)
+        {
+            int index = _random.Next(visibleWords.Count);
+            visibleWords[index].Hide();
+            visibleWords.RemoveAt(index);
+        }
     }
 
     public string GetDisplayText()
@@ -40,6 +48,6 @@ public class Scripture
 
     public bool IsCompletelyHidden()
     {
-        return false;
+        return _words.All(word => word.IsHidden());
     }
 }

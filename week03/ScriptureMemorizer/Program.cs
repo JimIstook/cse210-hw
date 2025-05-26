@@ -12,7 +12,7 @@ class Program
 
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
             string quit = Console.ReadLine();
-            if (quit == "quit")
+            if ((quit == "quit") || (scripture.IsCompletelyHidden()))
             {
                 break;
             }
