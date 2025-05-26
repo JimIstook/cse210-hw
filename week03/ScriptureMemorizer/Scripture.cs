@@ -2,13 +2,21 @@ using System;
 
 public class Scripture
 {
-    public Reference _reference = new Reference();
+    private Reference _reference;
     private List<Word> _words = new List<Word>();
-    private string _scripture = "Trust in the lord in all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.";
+    private string _scripture;
     private Random _random = new Random();
 
     public Scripture()
     {
+        _reference = new Reference();
+        _scripture = "Trust in the lord in all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.";
+        SetWords();
+    }
+    public Scripture(string book, int chapter, int verse, int endverse, string scripture)
+    {
+        _reference = new Reference(book, chapter, verse, endverse);
+        _scripture = scripture;
         SetWords();
     }
 
